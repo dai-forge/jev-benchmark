@@ -1,0 +1,1300 @@
+score receipt 2026-09-25T21:45:36.756Z in runs.jsonl (summary_sha256 covers the lines below)
+mode: real; rows ignored: 0 stale (superseded model, execution or prompt), 0 not real (row or run mode differs); both kept in calls.jsonl
+questions loaded: 106; scored rows: 1166
+slices (from the datasets): general, gold, jev_weakness, near_miss
+
+=== side by side: correct/n accuracy c=mean confidence (deterministic excluded above its own line; clear and contested never pooled) ===
+  c= is NOT one scale across columns: each column's confidence_kind is printed below
+                            luna                  luna_structured       sonnet                sonnet_low            gpt56                 jev                   jev_fewshot           jev_atomic            jev_atomic_fewshot    jev_parallel          jev_parallel_fewshot  
+  confidence_kind           self_reported         self_reported         self_reported         self_reported         self_reported         distribution_derived  distribution_derived  distribution_derived+noul_binary_deriveddistribution_derived+noul_binary_deriveddistribution_derived[choice-decided]+distribution_derived[noul-decided]distribution_derived[choice-decided]+distribution_derived[noul-decided]
+  clear, all datasets       83/88 0.943 c=0.982   83/88 0.943 c=0.981   85/88 0.966 c=0.874   85/88 0.966 c=0.869   84/88 0.955 c=0.959   77/88 0.875 c=0.945   80/88 0.909 c=0.945   78/88 0.886 c=mixed   82/88 0.932 c=mixed   78/88 0.886 c=mixed   83/88 0.943 c=mixed   
+  clear, hard set           36/40 0.900 c=0.971   36/40 0.900 c=0.968   38/40 0.950 c=0.809   38/40 0.950 c=0.802   37/40 0.925 c=0.921   32/40 0.800 c=0.923   33/40 0.825 c=0.891   33/40 0.825 c=mixed   36/40 0.900 c=mixed   32/40 0.800 c=0.919C  36/40 0.900 c=mixed   
+  clear, gold set           47/48 0.979 c=0.992   47/48 0.979 c=0.992   47/48 0.979 c=0.927   47/48 0.979 c=0.925   47/48 0.979 c=0.991   45/48 0.938 c=0.963   47/48 0.979 c=0.990   45/48 0.938 c=mixed   46/48 0.958 c=mixed   46/48 0.958 c=mixed   47/48 0.979 c=0.990C  
+  contested (expected|alt)  11/17 0.647 c=0.880   10/17 0.588 c=0.851   14/17 0.824 c=0.744   13/17 0.765 c=0.748   13/17 0.765 c=0.866   12/17 0.706 c=0.791   12/17 0.706 c=0.732   11/17 0.647 c=mixed   11/17 0.647 c=mixed   11/17 0.647 c=0.792C  13/17 0.765 c=0.735C  
+  general clear             18/18 1.000 c=0.966   18/18 1.000 c=0.959   18/18 1.000 c=0.742   18/18 1.000 c=0.745   18/18 1.000 c=0.872   14/18 0.778 c=0.933   14/18 0.778 c=0.856   16/18 0.889 c=mixed   17/18 0.944 c=mixed   14/18 0.778 c=0.924C  17/18 0.944 c=mixed   
+  general contested         9/13 0.692 c=0.852    8/13 0.615 c=0.816    12/13 0.923 c=0.736   11/13 0.846 c=0.740   11/13 0.846 c=0.842   10/13 0.769 c=0.758   11/13 0.846 c=0.737   10/13 0.769 c=0.749   11/13 0.846 c=mixed   9/13 0.692 c=0.761C   11/13 0.846 c=0.731C  
+  gold clear                47/48 0.979 c=0.992   47/48 0.979 c=0.992   47/48 0.979 c=0.927   47/48 0.979 c=0.925   47/48 0.979 c=0.991   45/48 0.938 c=0.963   47/48 0.979 c=0.990   45/48 0.938 c=mixed   46/48 0.958 c=mixed   46/48 0.958 c=mixed   47/48 0.979 c=0.990C  
+  gold contested            n=0                   n=0                   n=0                   n=0                   n=0                   n=0                   n=0                   n=0                   n=0                   n=0                   n=0                   
+  jev_weakness clear        7/9 0.778 c=0.977     7/9 0.778 c=0.974     8/9 0.889 c=0.883     8/9 0.889 c=0.874     7/9 0.778 c=0.981     7/9 0.778 c=0.909     7/9 0.778 c=0.909     7/9 0.778 c=0.913     7/9 0.778 c=0.910     7/9 0.778 c=0.910C    7/9 0.778 c=0.906C    
+  jev_weakness contested    1/2 0.500 c=0.960     1/2 0.500 c=0.955     1/2 0.500 c=0.785     1/2 0.500 c=0.775     1/2 0.500 c=0.960     1/2 0.500 c=0.850     0/2 0.000 c=0.720     1/2 0.500 c=0.845     0/2 0.000 c=0.750     1/2 0.500 c=0.830C    1/2 0.500 c=0.720C    
+  near_miss clear           11/13 0.846 c=0.975   11/13 0.846 c=0.977   12/13 0.923 c=0.850   12/13 0.923 c=0.832   12/13 0.923 c=0.947   11/13 0.846 c=0.918   12/13 0.923 c=0.926   10/13 0.769 c=mixed   12/13 0.923 c=0.924   11/13 0.846 c=0.917C  12/13 0.923 c=0.922C  
+  near_miss contested       1/2 0.500 c=0.985     1/2 0.500 c=0.975     1/2 0.500 c=0.750     1/2 0.500 c=0.775     1/2 0.500 c=0.925     1/2 0.500 c=0.950     1/2 0.500 c=0.715     0/2 0.000 c=mixed     0/2 0.000 c=mixed     1/2 0.500 c=0.955C    1/2 0.500 c=0.775C    
+  caught_by=deterministic   1/1 1.000 c=1.000     1/1 1.000 c=1.000     1/1 1.000 c=0.980     1/1 1.000 c=0.980     1/1 1.000 c=1.000     1/1 1.000 c=1.000     1/1 1.000 c=1.000     1/1 1.000 c=1.000     1/1 1.000 c=1.000     1/1 1.000 c=1.000C    1/1 1.000 c=1.000C    
+  c sd, clear               sd=0.050 n=88         sd=0.060 n=88         sd=0.199 n=88         sd=0.190 n=88         sd=0.133 n=88         sd=0.114 n=88         sd=0.122 n=88         mixed                 mixed                 mixed                 mixed                 
+  c sd, contested           sd=0.159 n=17         sd=0.183 n=17         sd=0.120 n=17         sd=0.113 n=17         sd=0.139 n=17         sd=0.202 n=17         sd=0.224 n=17         mixed                 mixed                 sd=0.199 n=17C        sd=0.224 n=17C        
+  c=…N / c=…C (and sd …N / …C): every row in that cell was Noul-decided / Choice-decided; 'mixed' = both populations, never pooled
+  label_token_logprob mean  0.992 n=105           0.993 n=105           null                  null                  null                  null                  null                  null                  null                  null                  null                  
+  latency ms, successes     p50=1629 p95=5046     p50=1835 p95=3306     p50=2028 p95=3325     p50=2014 p95=2652     p50=1723 p95=2682     p50=351 p95=776       p50=406 p95=1546      p50=648 p95=763       p50=712 p95=869       p50=328 p95=462       p50=362 p95=497       
+  attempts, retried, t/o    att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=203 rtr=0 t/o=0   att=203 rtr=0 t/o=0   att=106 rtr=0 t/o=0   att=106 rtr=0 t/o=0   
+
+=== delta: luna_structured minus luna — interface effect: constrained vs free JSON, one model ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: luna_structured=self_reported, luna=self_reported
+  a = luna_structured, b = luna; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.943    0.943  +0.000      0.982    0.981  -0.001
+  clear, hard set             40     0.900    0.900  +0.000      0.971    0.968  -0.003
+  clear, gold set             48     0.979    0.979  +0.000      0.992    0.992  +0.000
+  contested (expected|alt)    17     0.647    0.588  -0.059      0.880    0.851  -0.029
+  general clear               18     1.000    1.000  +0.000      0.966    0.959  -0.007
+  general contested           13     0.692    0.615  -0.077      0.852    0.816  -0.035
+  gold clear                  48     0.979    0.979  +0.000      0.992    0.992  +0.000
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000      0.977    0.974  -0.002
+  jev_weakness contested       2     0.500    0.500  +0.000      0.960    0.955  -0.005
+  near_miss clear             13     0.846    0.846  +0.000      0.975    0.977  +0.002
+  near_miss contested          2     0.500    0.500  +0.000      0.985    0.975  -0.010
+  cost on the cohort (n=105; luna -> luna_structured); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000407 -> $0.000429  (luna_structured/luna = 1.05x); total $0.0428 -> $0.0451; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000093 -> $0.000101  (luna_structured/luna = 1.08x); total $0.0098 -> $0.0106; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 40.2 -> 44.8  (luna_structured/luna = 1.11x); total 4219 -> 4701; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0428 -> $0.0451  (luna_structured/luna = 1.05x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0098 -> $0.0106  (luna_structured/luna = 1.08x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries luna: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries luna_structured: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  luna: n=105 mean=2104 p50=1630 p95=5046 max=7072
+    successful  luna_structured: n=105 mean=2015 p50=1836 p95=3306 max=4797   (p50 luna_structured/luna = 1.13x)
+    failed      luna: n=0
+    failed      luna_structured: n=0
+
+=== delta: sonnet minus luna — frontier vs cheap, same prompt (other vendor, thinking on) ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: sonnet=self_reported, luna=self_reported
+  a = sonnet, b = luna; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.943    0.966  +0.023      0.982    0.874  -0.109
+  clear, hard set             40     0.900    0.950  +0.050      0.971    0.809  -0.162
+  clear, gold set             48     0.979    0.979  +0.000      0.992    0.927  -0.064
+  contested (expected|alt)    17     0.647    0.824  +0.176      0.880    0.744  -0.136
+  general clear               18     1.000    1.000  +0.000      0.966    0.742  -0.223
+  general contested           13     0.692    0.923  +0.231      0.852    0.736  -0.115
+  gold clear                  48     0.979    0.979  +0.000      0.992    0.927  -0.064
+  gold contested               0
+  jev_weakness clear           9     0.778    0.889  +0.111      0.977    0.883  -0.093
+  jev_weakness contested       2     0.500    0.500  +0.000      0.960    0.785  -0.175
+  near_miss clear             13     0.846    0.923  +0.077      0.975    0.850  -0.125
+  near_miss contested          2     0.500    0.500  +0.000      0.985    0.750  -0.235
+  cost on the cohort (n=105; luna -> sonnet); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000407 -> $0.006450  (sonnet/luna = 15.83x); total $0.0428 -> $0.6772; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000093 -> $0.006450  (sonnet/luna = 69.02x); total $0.0098 -> $0.6772; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 40.2 -> 61.6  (sonnet/luna = 1.53x); total 4219 -> 6471; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0428 -> $0.6772  (sonnet/luna = 15.83x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0098 -> $0.6772  (sonnet/luna = 69.02x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries luna: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries sonnet: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  luna: n=105 mean=2104 p50=1630 p95=5046 max=7072
+    successful  sonnet: n=105 mean=2153 p50=2048 p95=3325 max=5149   (p50 sonnet/luna = 1.26x)
+    failed      luna: n=0
+    failed      sonnet: n=0
+
+=== delta: sonnet_low minus sonnet — what extended thinking buys: effort low vs high, one model ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: sonnet_low=self_reported, sonnet=self_reported
+  a = sonnet_low, b = sonnet; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.966    0.966  +0.000      0.874    0.869  -0.005
+  clear, hard set             40     0.950    0.950  +0.000      0.809    0.802  -0.006
+  clear, gold set             48     0.979    0.979  +0.000      0.927    0.925  -0.003
+  contested (expected|alt)    17     0.824    0.765  -0.059      0.744    0.748  +0.005
+  general clear               18     1.000    1.000  +0.000      0.742    0.745  +0.003
+  general contested           13     0.923    0.846  -0.077      0.736    0.740  +0.004
+  gold clear                  48     0.979    0.979  +0.000      0.927    0.925  -0.003
+  gold contested               0
+  jev_weakness clear           9     0.889    0.889  +0.000      0.883    0.874  -0.009
+  jev_weakness contested       2     0.500    0.500  +0.000      0.785    0.775  -0.010
+  near_miss clear             13     0.923    0.923  +0.000      0.850    0.832  -0.018
+  near_miss contested          2     0.500    0.500  +0.000      0.750    0.775  +0.025
+  cost on the cohort (n=105; sonnet -> sonnet_low); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.006450 -> $0.006386  (sonnet_low/sonnet = 0.99x); total $0.6772 -> $0.6705; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.006450 -> $0.006386  (sonnet_low/sonnet = 0.99x); total $0.6772 -> $0.6705; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 61.6 -> 55.2  (sonnet_low/sonnet = 0.90x); total 6471 -> 5801; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.6772 -> $0.6705  (sonnet_low/sonnet = 0.99x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.6772 -> $0.6705  (sonnet_low/sonnet = 0.99x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries sonnet: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries sonnet_low: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  sonnet: n=105 mean=2153 p50=2048 p95=3325 max=5149
+    successful  sonnet_low: n=105 mean=2059 p50=2016 p95=2652 max=4672   (p50 sonnet_low/sonnet = 0.98x)
+    failed      sonnet: n=0
+    failed      sonnet_low: n=0
+
+=== delta: gpt56 minus luna — frontier vs cheap, same prompt (same vendor, reasoning on) ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: gpt56=self_reported, luna=self_reported
+  a = gpt56, b = luna; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.943    0.955  +0.011      0.982    0.959  -0.024
+  clear, hard set             40     0.900    0.925  +0.025      0.971    0.921  -0.050
+  clear, gold set             48     0.979    0.979  +0.000      0.992    0.991  -0.001
+  contested (expected|alt)    17     0.647    0.765  +0.118      0.880    0.866  -0.014
+  general clear               18     1.000    1.000  +0.000      0.966    0.872  -0.093
+  general contested           13     0.692    0.846  +0.154      0.852    0.842  -0.009
+  gold clear                  48     0.979    0.979  +0.000      0.992    0.991  -0.001
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000      0.977    0.981  +0.004
+  jev_weakness contested       2     0.500    0.500  +0.000      0.960    0.960  +0.000
+  near_miss clear             13     0.846    0.923  +0.077      0.975    0.947  -0.028
+  near_miss contested          2     0.500    0.500  +0.000      0.985    0.925  -0.060
+  cost on the cohort (n=105; luna -> gpt56); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000407 -> $0.008310  (gpt56/luna = 20.39x); total $0.0428 -> $0.8725; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000093 -> $0.002029  (gpt56/luna = 21.72x); total $0.0098 -> $0.2131; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 40.2 -> 56.2  (gpt56/luna = 1.40x); total 4219 -> 5905; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0428 -> $0.8725  (gpt56/luna = 20.39x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0098 -> $0.2131  (gpt56/luna = 21.72x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries luna: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries gpt56: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  luna: n=105 mean=2104 p50=1630 p95=5046 max=7072
+    successful  gpt56: n=105 mean=1843 p50=1738 p95=2682 max=4304   (p50 gpt56/luna = 1.07x)
+    failed      luna: n=0
+    failed      gpt56: n=0
+
+=== delta: jev_fewshot minus jev — joint effect of examples present in state and named in instructions ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: jev_fewshot=distribution_derived, jev=distribution_derived
+  a = jev_fewshot, b = jev; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.875    0.909  +0.034      0.945    0.945  +0.000
+  clear, hard set             40     0.800    0.825  +0.025      0.923    0.891  -0.032
+  clear, gold set             48     0.938    0.979  +0.042      0.963    0.990  +0.027
+  contested (expected|alt)    17     0.706    0.706  +0.000      0.791    0.732  -0.059
+  general clear               18     0.778    0.778  +0.000      0.933    0.856  -0.077
+  general contested           13     0.769    0.846  +0.077      0.758    0.737  -0.021
+  gold clear                  48     0.938    0.979  +0.042      0.963    0.990  +0.027
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000      0.909    0.909  +0.000
+  jev_weakness contested       2     0.500    0.000  -0.500      0.850    0.720  -0.130
+  near_miss clear             13     0.846    0.923  +0.077      0.918    0.926  +0.008
+  near_miss contested          2     0.500    0.500  +0.000      0.950    0.715  -0.235
+  cost on the cohort (n=105; jev -> jev_fewshot); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000024 -> $0.000110  (jev_fewshot/jev = 4.61x); total $0.0025 -> $0.0116; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000024 -> $0.000110  (jev_fewshot/jev = 4.61x); total $0.0025 -> $0.0116; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 106.9 -> 106.9  (jev_fewshot/jev = 1.00x); total 11221 -> 11224; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0025 -> $0.0116  (jev_fewshot/jev = 4.61x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0025 -> $0.0116  (jev_fewshot/jev = 4.61x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries jev: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries jev_fewshot: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  jev: n=105 mean=396 p50=354 p95=776 max=973
+    successful  jev_fewshot: n=105 mean=542 p50=408 p95=1546 max=3073   (p50 jev_fewshot/jev = 1.15x)
+    failed      jev: n=0
+    failed      jev_fewshot: n=0
+
+=== delta: jev_atomic minus jev — post-hoc exploratory: atomic Noul+Choice vs one nine-way Choice, arm chosen after seeing jev's results, not a pre-registered controlled comparison ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: jev_atomic=distribution_derived+noul_binary_derived, jev=distribution_derived  (different kinds: Δconf not computed)
+  a = jev_atomic, b = jev; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.875    0.886  +0.011   n/a
+  clear, hard set             40     0.800    0.825  +0.025   n/a
+  clear, gold set             48     0.938    0.938  +0.000   n/a
+  contested (expected|alt)    17     0.706    0.647  -0.059   n/a
+  general clear               18     0.778    0.889  +0.111   n/a
+  general contested           13     0.769    0.769  +0.000   n/a
+  gold clear                  48     0.938    0.938  +0.000   n/a
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000   n/a
+  jev_weakness contested       2     0.500    0.500  +0.000   n/a
+  near_miss clear             13     0.846    0.769  -0.077   n/a
+  near_miss contested          2     0.500    0.000  -0.500   n/a
+  cost on the cohort (n=105; jev -> jev_atomic); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000024 -> $0.000037  (jev_atomic/jev = 1.56x); total $0.0025 -> $0.0039; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000024 -> $0.000037  (jev_atomic/jev = 1.56x); total $0.0025 -> $0.0039; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 106.9 -> 111.5  (jev_atomic/jev = 1.04x); total 11221 -> 11707; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0025 -> $0.0039  (jev_atomic/jev = 1.56x); known 105/105 -> 201/201 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0025 -> $0.0039  (jev_atomic/jev = 1.56x); known 105/105 -> 201/201 attempts; unknown 0 -> 0
+    retries jev: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries jev_atomic: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  jev: n=105 mean=396 p50=354 p95=776 max=973
+    successful  jev_atomic: n=105 mean=632 p50=649 p95=763 max=801   (p50 jev_atomic/jev = 1.83x)
+    failed      jev: n=0
+    failed      jev_atomic: n=0
+
+=== delta: jev_atomic_fewshot minus jev — post-hoc exploratory: decomposition and examples together, vs bare jev ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: jev_atomic_fewshot=distribution_derived+noul_binary_derived, jev=distribution_derived  (different kinds: Δconf not computed)
+  a = jev_atomic_fewshot, b = jev; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.875    0.932  +0.057   n/a
+  clear, hard set             40     0.800    0.900  +0.100   n/a
+  clear, gold set             48     0.938    0.958  +0.021   n/a
+  contested (expected|alt)    17     0.706    0.647  -0.059   n/a
+  general clear               18     0.778    0.944  +0.167   n/a
+  general contested           13     0.769    0.846  +0.077   n/a
+  gold clear                  48     0.938    0.958  +0.021   n/a
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000   n/a
+  jev_weakness contested       2     0.500    0.000  -0.500   n/a
+  near_miss clear             13     0.846    0.923  +0.077   n/a
+  near_miss contested          2     0.500    0.000  -0.500   n/a
+  cost on the cohort (n=105; jev -> jev_atomic_fewshot); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000024 -> $0.000202  (jev_atomic_fewshot/jev = 8.46x); total $0.0025 -> $0.0212; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000024 -> $0.000202  (jev_atomic_fewshot/jev = 8.46x); total $0.0025 -> $0.0212; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 106.9 -> 111.6  (jev_atomic_fewshot/jev = 1.04x); total 11221 -> 11713; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0025 -> $0.0212  (jev_atomic_fewshot/jev = 8.46x); known 105/105 -> 201/201 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0025 -> $0.0212  (jev_atomic_fewshot/jev = 8.46x); known 105/105 -> 201/201 attempts; unknown 0 -> 0
+    retries jev: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries jev_atomic_fewshot: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  jev: n=105 mean=396 p50=354 p95=776 max=973
+    successful  jev_atomic_fewshot: n=105 mean=704 p50=712 p95=869 max=901   (p50 jev_atomic_fewshot/jev = 2.01x)
+    failed      jev: n=0
+    failed      jev_atomic_fewshot: n=0
+
+=== delta: jev_parallel minus jev — post-hoc exploratory: one request with a Noul and a nine-way Choice vs one nine-way Choice, arm added after seeing jev_atomic's results ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: jev_parallel=distribution_derived[choice-decided]+distribution_derived[noul-decided], jev=distribution_derived  (different kinds: Δconf not computed)
+  a = jev_parallel, b = jev; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.875    0.886  +0.011   n/a
+  clear, hard set             40     0.800    0.800  +0.000   n/a
+  clear, gold set             48     0.938    0.958  +0.021   n/a
+  contested (expected|alt)    17     0.706    0.647  -0.059   n/a
+  general clear               18     0.778    0.778  +0.000   n/a
+  general contested           13     0.769    0.692  -0.077   n/a
+  gold clear                  48     0.938    0.958  +0.021   n/a
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000   n/a
+  jev_weakness contested       2     0.500    0.500  +0.000   n/a
+  near_miss clear             13     0.846    0.846  +0.000   n/a
+  near_miss contested          2     0.500    0.500  +0.000   n/a
+  cost on the cohort (n=105; jev -> jev_parallel); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000024 -> $0.000028  (jev_parallel/jev = 1.17x); total $0.0025 -> $0.0029; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000024 -> $0.000028  (jev_parallel/jev = 1.17x); total $0.0025 -> $0.0029; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 106.9 -> 124.8  (jev_parallel/jev = 1.17x); total 11221 -> 13109; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0025 -> $0.0029  (jev_parallel/jev = 1.17x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0025 -> $0.0029  (jev_parallel/jev = 1.17x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries jev: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries jev_parallel: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  jev: n=105 mean=396 p50=354 p95=776 max=973
+    successful  jev_parallel: n=105 mean=342 p50=328 p95=462 max=500   (p50 jev_parallel/jev = 0.93x)
+    failed      jev: n=0
+    failed      jev_parallel: n=0
+
+=== delta: jev_parallel_fewshot minus jev — post-hoc exploratory: parallel Noul + Choice-9 and examples together, vs bare jev ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: jev_parallel_fewshot=distribution_derived[choice-decided]+distribution_derived[noul-decided], jev=distribution_derived  (different kinds: Δconf not computed)
+  a = jev_parallel_fewshot, b = jev; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.875    0.943  +0.068   n/a
+  clear, hard set             40     0.800    0.900  +0.100   n/a
+  clear, gold set             48     0.938    0.979  +0.042   n/a
+  contested (expected|alt)    17     0.706    0.765  +0.059   n/a
+  general clear               18     0.778    0.944  +0.167   n/a
+  general contested           13     0.769    0.846  +0.077   n/a
+  gold clear                  48     0.938    0.979  +0.042   n/a
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000   n/a
+  jev_weakness contested       2     0.500    0.500  +0.000   n/a
+  near_miss clear             13     0.846    0.923  +0.077   n/a
+  near_miss contested          2     0.500    0.500  +0.000   n/a
+  cost on the cohort (n=105; jev -> jev_parallel_fewshot); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000024 -> $0.000115  (jev_parallel_fewshot/jev = 4.82x); total $0.0025 -> $0.0121; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000024 -> $0.000115  (jev_parallel_fewshot/jev = 4.82x); total $0.0025 -> $0.0121; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 106.9 -> 124.9  (jev_parallel_fewshot/jev = 1.17x); total 11221 -> 13114; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0025 -> $0.0121  (jev_parallel_fewshot/jev = 4.82x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0025 -> $0.0121  (jev_parallel_fewshot/jev = 4.82x); known 105/105 -> 105/105 attempts; unknown 0 -> 0
+    retries jev: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries jev_parallel_fewshot: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  jev: n=105 mean=396 p50=354 p95=776 max=973
+    successful  jev_parallel_fewshot: n=105 mean=373 p50=362 p95=497 max=565   (p50 jev_parallel_fewshot/jev = 1.02x)
+    failed      jev: n=0
+    failed      jev_parallel_fewshot: n=0
+
+=== delta: jev_parallel minus jev_atomic — post-hoc exploratory: keeping all nine labels visible to the Choice while decomposing (one parallel request vs sequential Noul then Choice-8) ===
+  cohort: questions both arms answered, deterministic excluded — n=105 (accuracy, cost, tokens and latency below are all on this cohort)
+  confidence_kind: jev_parallel=distribution_derived[choice-decided]+distribution_derived[noul-decided], jev_atomic=distribution_derived+noul_binary_derived  (different kinds: Δconf not computed)
+  a = jev_parallel, b = jev_atomic; Δ = a - b
+  group                        n    acc(b)   acc(a)   Δacc    conf(b)  conf(a)  Δconf
+  clear, all datasets         88     0.886    0.886  +0.000   n/a
+  clear, hard set             40     0.825    0.800  -0.025   n/a
+  clear, gold set             48     0.938    0.958  +0.021   n/a
+  contested (expected|alt)    17     0.647    0.647  +0.000   n/a
+  general clear               18     0.889    0.778  -0.111   n/a
+  general contested           13     0.769    0.692  -0.077   n/a
+  gold clear                  48     0.938    0.958  +0.021   n/a
+  gold contested               0
+  jev_weakness clear           9     0.778    0.778  +0.000   n/a
+  jev_weakness contested       2     0.500    0.500  +0.000   n/a
+  near_miss clear             13     0.769    0.846  +0.077   n/a
+  near_miss contested          2     0.000    0.500  +0.500   n/a
+  cost on the cohort (n=105; jev_atomic -> jev_parallel); per-call figures are each pair's FINAL attempt, ALL ATTEMPTS lines include retries:
+    list price                       per call $0.000037 -> $0.000028  (jev_parallel/jev_atomic = 0.75x); total $0.0039 -> $0.0029; known 105/105 -> 105/105
+    ESTIMATED billed                 per call $0.000037 -> $0.000028  (jev_parallel/jev_atomic = 0.75x); total $0.0039 -> $0.0029; known 105/105 -> 105/105
+    output tokens (thinking incl.)   per call 111.5 -> 124.8  (jev_parallel/jev_atomic = 1.12x); total 11707 -> 13109; known 105/105 -> 105/105
+    ALL ATTEMPTS list price          total $0.0039 -> $0.0029  (jev_parallel/jev_atomic = 0.75x); known 201/201 -> 105/105 attempts; unknown 0 -> 0
+    ALL ATTEMPTS ESTIMATED billed    total $0.0039 -> $0.0029  (jev_parallel/jev_atomic = 0.75x); known 201/201 -> 105/105 attempts; unknown 0 -> 0
+    retries jev_atomic: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+    retries jev_parallel: timed out 0/105; calls with a timed-out attempt 0; retried 0/105 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+  latency_ms on the cohort (end-to-end API latency under this run's conditions):
+    successful  jev_atomic: n=105 mean=632 p50=649 p95=763 max=801
+    successful  jev_parallel: n=105 mean=342 p50=328 p95=462 max=500   (p50 jev_parallel/jev_atomic = 0.51x)
+    failed      jev_atomic: n=0
+    failed      jev_parallel: n=0
+
+=== luna (confidence_kind: self_reported) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        83/88 = 0.943
+  clear, hard set            36/40 = 0.900
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   11/17 = 0.647
+  per slice:
+    general       clear 18/18 = 1.000                contested 9/13 = 0.692
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 11/13 = 0.846                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[self_reported]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  7/7 = 1.000
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     12/15 = 0.800
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        7        0        0        0        0        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           1        0        2       12        0        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia out_of_s risk_fac
+    cross_filing_comparison          2        3        0        0        0        0        1
+    disclosure_search                0        0        3        0        0        0        1
+    filing_section_summary           1        1        0        1        1        0        0
+    out_of_scope                     0        0        1        0        0        1        0
+    risk_factor_analysis             0        0        0        0        0        0        1
+confidence [self_reported]:
+    clear      n=88 mean=0.982 sd=0.050 min=0.550 p25=0.990 p50=0.990 p75=0.990 max=1.000
+    clear      histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:1 0.6:0 0.7:0 0.8:2 0.9:85
+    contested  n=17 mean=0.880 sd=0.159 min=0.450 p25=0.860 p50=0.940 p75=0.980 max=0.990
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:1 0.5:0 0.6:2 0.7:1 0.8:1 0.9:12
+calibration [self_reported], clear rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=1    acc=1.000 mean_conf=0.550
+    [0.85,0.90)  n=2    acc=0.000 mean_conf=0.870
+    [0.95,1.00]  n=85   acc=0.965 mean_conf=0.990
+calibration [self_reported], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=0.000 mean_conf=0.450
+    [0.60,0.70)  n=2    acc=0.000 mean_conf=0.620
+    [0.70,0.80)  n=1    acc=1.000 mean_conf=0.780
+    [0.85,0.90)  n=1    acc=0.000 mean_conf=0.860
+    [0.90,0.95)  n=4    acc=0.750 mean_conf=0.938
+    [0.95,1.00]  n=8    acc=0.875 mean_conf=0.985
+second confidence [label_token_logprob] (same calls as [self_reported] above):
+    clear      n=88 mean=0.996 sd=0.032 min=0.697 p25=1.000 p50=1.000 p75=1.000 max=1.000
+    contested  n=17 mean=0.973 sd=0.065 min=0.779 p25=0.997 p50=1.000 p75=1.000 max=1.000
+calibration [label_token_logprob], clear rows (bucket, n, accuracy, mean):
+    [0.60,0.70)  n=1    acc=0.000 mean_conf=0.697
+    [0.95,1.00]  n=87   acc=0.954 mean_conf=0.999
+calibration [label_token_logprob], contested rows (bucket, n, accuracy, mean):
+    [0.70,0.80)  n=1    acc=1.000 mean_conf=0.779
+    [0.80,0.85)  n=1    acc=0.000 mean_conf=0.818
+    [0.95,1.00]  n=15   acc=0.667 mean_conf=0.996
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00040739 p50=$0.00040640 total=$0.043183 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00009333 p50=$0.00008854 total=$0.009893 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.043183 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.009893 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=318 (reported on 106, null on 0); cached=186060 (reported on 106, null on 0); cache_write=4025 (reported on 106, null on 0)
+    latency_ms, successful calls: n=106 mean=2098 p50=1629 p95=5046 max=7072
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=40.1 p50=40.0 max=52; max_tokens=[256]; reached max_tokens on 0/106
+errors: 0
+
+=== luna_structured (confidence_kind: self_reported) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        83/88 = 0.943
+  clear, hard set            36/40 = 0.900
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   10/17 = 0.588
+  per slice:
+    general       clear 18/18 = 1.000                contested 8/13 = 0.615
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 11/13 = 0.846                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[self_reported]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  7/7 = 1.000
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     12/15 = 0.800
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        7        0        0        0        0        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        0        2       12        1        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      ambiguou cross_fi disclosu financia out_of_s risk_fac
+    cross_filing_comparison          2        4        0        0        0        0
+    disclosure_search                0        0        3        0        0        1
+    filing_section_summary           2        1        0        1        0        0
+    out_of_scope                     0        0        1        0        1        0
+    risk_factor_analysis             0        0        0        0        0        1
+confidence [self_reported]:
+    clear      n=88 mean=0.981 sd=0.060 min=0.450 p25=0.990 p50=0.990 p75=0.990 max=1.000
+    clear      histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:1 0.5:0 0.6:0 0.7:0 0.8:1 0.9:86
+    contested  n=17 mean=0.851 sd=0.183 min=0.430 p25=0.860 p50=0.950 p75=0.990 max=0.990
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:1 0.5:3 0.6:0 0.7:0 0.8:3 0.9:10
+calibration [self_reported], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=1.000 mean_conf=0.450
+    [0.85,0.90)  n=1    acc=0.000 mean_conf=0.860
+    [0.90,0.95)  n=2    acc=0.000 mean_conf=0.930
+    [0.95,1.00]  n=84   acc=0.976 mean_conf=0.990
+calibration [self_reported], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=0.000 mean_conf=0.430
+    [0.50,0.60)  n=3    acc=0.000 mean_conf=0.570
+    [0.85,0.90)  n=3    acc=0.667 mean_conf=0.867
+    [0.90,0.95)  n=1    acc=1.000 mean_conf=0.930
+    [0.95,1.00]  n=9    acc=0.778 mean_conf=0.978
+second confidence [label_token_logprob] (same calls as [self_reported] above):
+    clear      n=88 mean=0.997 sd=0.018 min=0.833 p25=1.000 p50=1.000 p75=1.000 max=1.000
+    contested  n=17 mean=0.972 sd=0.079 min=0.701 p25=1.000 p50=1.000 p75=1.000 max=1.000
+calibration [label_token_logprob], clear rows (bucket, n, accuracy, mean):
+    [0.80,0.85)  n=1    acc=0.000 mean_conf=0.833
+    [0.95,1.00]  n=87   acc=0.954 mean_conf=0.999
+calibration [label_token_logprob], contested rows (bucket, n, accuracy, mean):
+    [0.70,0.80)  n=1    acc=0.000 mean_conf=0.701
+    [0.80,0.85)  n=1    acc=0.000 mean_conf=0.829
+    [0.95,1.00]  n=15   acc=0.667 mean_conf=1.000
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00042911 p50=$0.00042820 total=$0.045486 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00010065 p50=$0.00009571 total=$0.010669 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.045486 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.010669 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=318 (reported on 106, null on 0); cached=194565 (reported on 106, null on 0); cache_write=4106 (reported on 106, null on 0)
+    latency_ms, successful calls: n=106 mean=2012 p50=1835 p95=3306 max=4797
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=44.7 p50=44.0 max=58; max_tokens=[256]; reached max_tokens on 0/106
+errors: 0
+
+=== sonnet (confidence_kind: self_reported) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        85/88 = 0.966
+  clear, hard set            38/40 = 0.950
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   14/17 = 0.824
+  per slice:
+    general       clear 18/18 = 1.000                contested 12/13 = 0.923
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 8/9 = 0.889                  contested 1/2 = 0.500
+    near_miss     clear 12/13 = 0.923                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[self_reported]=0.980
+per-label accuracy, clear rows:
+    ambiguous                  7/7 = 1.000
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     13/15 = 0.867
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       13/14 = 0.929
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        7        0        0        0        0        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        0        1       13        1        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        0        0        0        0        0       13
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      cross_fi disclosu filing_s financia out_of_s risk_fac
+    cross_filing_comparison          5        0        0        0        0        1
+    disclosure_search                0        3        0        0        0        1
+    filing_section_summary           1        0        2        1        0        0
+    out_of_scope                     0        1        0        0        1        0
+    risk_factor_analysis             0        0        0        0        0        1
+confidence [self_reported]:
+    clear      n=88 mean=0.874 sd=0.199 min=0.200 p25=0.900 p50=0.950 p75=0.970 max=0.990
+    clear      histogram 0.0:0 0.1:0 0.2:4 0.3:3 0.4:0 0.5:1 0.6:0 0.7:4 0.8:9 0.9:67
+    contested  n=17 mean=0.744 sd=0.120 min=0.550 p25=0.650 p50=0.720 p75=0.850 max=0.930
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:1 0.6:5 0.7:5 0.8:2 0.9:4
+calibration [self_reported], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=7    acc=1.000 mean_conf=0.243
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.550
+    [0.70,0.80)  n=4    acc=0.750 mean_conf=0.730
+    [0.85,0.90)  n=9    acc=0.889 mean_conf=0.852
+    [0.90,0.95)  n=16   acc=1.000 mean_conf=0.919
+    [0.95,1.00]  n=51   acc=1.000 mean_conf=0.967
+calibration [self_reported], contested rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=1    acc=1.000 mean_conf=0.550
+    [0.60,0.70)  n=5    acc=0.800 mean_conf=0.624
+    [0.70,0.80)  n=5    acc=0.600 mean_conf=0.728
+    [0.85,0.90)  n=2    acc=1.000 mean_conf=0.850
+    [0.90,0.95)  n=4    acc=1.000 mean_conf=0.907
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not available for this arm: the Anthropic Messages API returns no token logprobs; LiteLLM lists no logprobs param for claude-sonnet-5
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00644879 p50=$0.00643600 total=$0.683572 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00644879 p50=$0.00643600 total=$0.683572 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.683572 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.683572 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=309171 (reported on 106, null on 0); cached=0 (reported on 106, null on 0); cache_write=0 (reported on 106, null on 0)
+    latency_ms, successful calls: n=106 mean=2151 p50=2028 p95=3325 max=5149
+    latency_ms, failed calls:     n=0
+    latency vs output tokens (successful calls; thinking included):
+      output 0-256      n=105  latency p50=2028 p95=3317 ms; ms/output-token p50=33.90
+      output 257-1000   n=1    latency p50=5149 p95=5149 ms; ms/output-token p50=18.59
+      output 1001-4000  n=0
+      output >4000      n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=61.5 p50=60.0 max=277; max_tokens=[16000]; reached max_tokens on 0/106
+    16000-token-run outputs exceeding 256 tokens: 1/106 = 0.009 (lower-bound diagnostic, NOT the rate a 256-token budget would have truncated: that needs matched calls, which were not made)
+errors: 0
+
+=== sonnet_low (confidence_kind: self_reported) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        85/88 = 0.966
+  clear, hard set            38/40 = 0.950
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   13/17 = 0.765
+  per slice:
+    general       clear 18/18 = 1.000                contested 11/13 = 0.846
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 8/9 = 0.889                  contested 1/2 = 0.500
+    near_miss     clear 12/13 = 0.923                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[self_reported]=0.980
+per-label accuracy, clear rows:
+    ambiguous                  7/7 = 1.000
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     14/15 = 0.933
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        7        0        0        0        0        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           1        0        0       14        0        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia out_of_s risk_fac
+    cross_filing_comparison          0        4        0        0        0        0        2
+    disclosure_search                0        0        3        0        0        0        1
+    filing_section_summary           1        1        0        1        1        0        0
+    out_of_scope                     0        0        1        0        0        1        0
+    risk_factor_analysis             0        0        0        0        0        0        1
+confidence [self_reported]:
+    clear      n=88 mean=0.869 sd=0.190 min=0.200 p25=0.900 p50=0.950 p75=0.970 max=0.990
+    clear      histogram 0.0:0 0.1:0 0.2:1 0.3:6 0.4:1 0.5:0 0.6:0 0.7:4 0.8:10 0.9:66
+    contested  n=17 mean=0.748 sd=0.113 min=0.550 p25=0.700 p50=0.750 p75=0.850 max=0.900
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:1 0.6:3 0.7:7 0.8:2 0.9:4
+calibration [self_reported], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=8    acc=0.875 mean_conf=0.300
+    [0.70,0.80)  n=4    acc=1.000 mean_conf=0.742
+    [0.80,0.85)  n=1    acc=1.000 mean_conf=0.800
+    [0.85,0.90)  n=9    acc=0.778 mean_conf=0.850
+    [0.90,0.95)  n=21   acc=1.000 mean_conf=0.914
+    [0.95,1.00]  n=45   acc=1.000 mean_conf=0.966
+calibration [self_reported], contested rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.550
+    [0.60,0.70)  n=3    acc=1.000 mean_conf=0.600
+    [0.70,0.80)  n=7    acc=0.571 mean_conf=0.731
+    [0.80,0.85)  n=1    acc=1.000 mean_conf=0.800
+    [0.85,0.90)  n=1    acc=1.000 mean_conf=0.850
+    [0.90,0.95)  n=4    acc=1.000 mean_conf=0.900
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not available for this arm: as sonnet: the Anthropic Messages API returns no token logprobs
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00638540 p50=$0.00638300 total=$0.676852 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00638540 p50=$0.00638300 total=$0.676852 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.676852 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.676852 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=309171 (reported on 106, null on 0); cached=0 (reported on 106, null on 0); cache_write=0 (reported on 106, null on 0)
+    latency_ms, successful calls: n=106 mean=2054 p50=2014 p95=2652 max=4672
+    latency_ms, failed calls:     n=0
+    latency vs output tokens (successful calls; thinking included):
+      output 0-256      n=106  latency p50=2014 p95=2652 ms; ms/output-token p50=35.33
+      output 257-1000   n=0
+      output 1001-4000  n=0
+      output >4000      n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=55.2 p50=55.0 max=80; max_tokens=[16000]; reached max_tokens on 0/106
+    16000-token-run outputs exceeding 256 tokens: 0/106 = 0.000 (lower-bound diagnostic, NOT the rate a 256-token budget would have truncated: that needs matched calls, which were not made)
+errors: 0
+
+=== gpt56 (confidence_kind: self_reported) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        84/88 = 0.955
+  clear, hard set            37/40 = 0.925
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   13/17 = 0.765
+  per slice:
+    general       clear 18/18 = 1.000                contested 11/13 = 0.846
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 12/13 = 0.923                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[self_reported]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  7/7 = 1.000
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     13/15 = 0.867
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        7        0        0        0        0        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        0        1       13        1        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia out_of_s risk_fac
+    cross_filing_comparison          0        6        0        0        0        0        0
+    disclosure_search                0        0        3        0        0        0        1
+    filing_section_summary           1        1        0        1        1        0        0
+    out_of_scope                     0        0        1        0        0        1        0
+    risk_factor_analysis             0        0        0        0        0        0        1
+confidence [self_reported]:
+    clear      n=88 mean=0.959 sd=0.133 min=0.200 p25=0.990 p50=0.990 p75=0.990 max=1.000
+    clear      histogram 0.0:0 0.1:0 0.2:2 0.3:1 0.4:0 0.5:0 0.6:1 0.7:0 0.8:1 0.9:83
+    contested  n=17 mean=0.866 sd=0.139 min=0.420 p25=0.820 p50=0.880 p75=0.980 max=0.990
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:1 0.5:0 0.6:0 0.7:3 0.8:5 0.9:8
+calibration [self_reported], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=3    acc=1.000 mean_conf=0.287
+    [0.60,0.70)  n=1    acc=0.000 mean_conf=0.680
+    [0.80,0.85)  n=1    acc=1.000 mean_conf=0.820
+    [0.90,0.95)  n=1    acc=0.000 mean_conf=0.930
+    [0.95,1.00]  n=82   acc=0.976 mean_conf=0.989
+calibration [self_reported], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=0.000 mean_conf=0.420
+    [0.70,0.80)  n=3    acc=0.667 mean_conf=0.767
+    [0.80,0.85)  n=2    acc=1.000 mean_conf=0.820
+    [0.85,0.90)  n=3    acc=0.667 mean_conf=0.867
+    [0.90,0.95)  n=2    acc=0.500 mean_conf=0.920
+    [0.95,1.00]  n=6    acc=1.000 mean_conf=0.987
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not available for this arm: reasoning effort is the default 'medium', and logprobs must be removed when effort is not 'none'; enabling them would mean changing reasoning_effort, which this experiment does not do
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00830558 p50=$0.00800400 total=$0.880392 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00202454 p50=$0.00164830 total=$0.214601 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.880392 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.214601 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=318 (reported on 106, null on 0); cached=186060 (reported on 106, null on 0); cache_write=4025 (reported on 106, null on 0)
+    latency_ms, successful calls: n=106 mean=1841 p50=1723 p95=2682 max=4304
+    latency_ms, failed calls:     n=0
+    latency vs output tokens (successful calls; thinking included):
+      output 0-256      n=106  latency p50=1723 p95=2682 ms; ms/output-token p50=39.94
+      output 257-1000   n=0
+      output 1001-4000  n=0
+      output >4000      n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=56.0 p50=40.0 max=228; max_tokens=[16000]; reached max_tokens on 0/106
+    16000-token-run outputs exceeding 256 tokens: 0/106 = 0.000 (lower-bound diagnostic, NOT the rate a 256-token budget would have truncated: that needs matched calls, which were not made)
+errors: 0
+
+=== jev (confidence_kind: distribution_derived) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        77/88 = 0.875
+  clear, hard set            32/40 = 0.800
+  clear, gold set            45/48 = 0.938
+  contested (expected|alt)   12/17 = 0.706
+  per slice:
+    general       clear 14/18 = 0.778                contested 10/13 = 0.769
+    gold          clear 45/48 = 0.938                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 11/13 = 0.846                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[distribution_derived]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  1/7 = 0.143
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     12/15 = 0.800
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        1        2        0        0        1        0        2        0        1
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        0        2       12        1        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      cross_fi disclosu financia out_of_s risk_fac
+    cross_filing_comparison          3        0        0        1        2
+    disclosure_search                0        3        0        0        1
+    filing_section_summary           0        3        1        0        0
+    out_of_scope                     0        1        0        1        0
+    risk_factor_analysis             0        0        0        0        1
+confidence [distribution_derived]:
+    clear      n=88 mean=0.945 sd=0.114 min=0.520 p25=0.960 p50=1.000 p75=1.000 max=1.000
+    clear      histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:2 0.6:5 0.7:3 0.8:3 0.9:75
+    contested  n=17 mean=0.791 sd=0.202 min=0.430 p25=0.700 p50=0.860 p75=0.960 max=1.000
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:3 0.5:1 0.6:0 0.7:3 0.8:2 0.9:8
+calibration [distribution_derived], clear rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=2    acc=0.000 mean_conf=0.525
+    [0.60,0.70)  n=5    acc=0.600 mean_conf=0.636
+    [0.70,0.80)  n=3    acc=0.667 mean_conf=0.747
+    [0.85,0.90)  n=3    acc=1.000 mean_conf=0.867
+    [0.90,0.95)  n=6    acc=0.833 mean_conf=0.928
+    [0.95,1.00]  n=69   acc=0.928 mean_conf=0.993
+calibration [distribution_derived], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=3    acc=0.333 mean_conf=0.437
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.540
+    [0.70,0.80)  n=3    acc=0.667 mean_conf=0.747
+    [0.80,0.85)  n=1    acc=1.000 mean_conf=0.810
+    [0.85,0.90)  n=1    acc=1.000 mean_conf=0.860
+    [0.90,0.95)  n=3    acc=0.667 mean_conf=0.923
+    [0.95,1.00]  n=5    acc=1.000 mean_conf=0.984
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not applicable: TypeSafe returns a nine-label probability distribution, not token logprobs; its confidence is already distribution_derived
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00002389 p50=$0.00002381 total=$0.002533 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00002389 p50=$0.00002381 total=$0.002533 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.002533 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.002533 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=0 (reported on 0, null on 106); cached=0 (reported on 0, null on 106); cache_write=0 (reported on 0, null on 106)
+    latency_ms, successful calls: n=106 mean=395 p50=351 p95=776 max=973
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=106.9 p50=107.0 max=109; max_tokens=n/a; reached max_tokens on 0/106
+errors: 0
+
+=== jev_fewshot (confidence_kind: distribution_derived) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        80/88 = 0.909
+  clear, hard set            33/40 = 0.825
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   12/17 = 0.706
+  per slice:
+    general       clear 14/18 = 0.778                contested 11/13 = 0.846
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 0/2 = 0.000
+    near_miss     clear 12/13 = 0.923                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[distribution_derived]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  3/7 = 0.429
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     13/15 = 0.867
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        3        2        0        0        1        0        0        0        1
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        1        1       13        0        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      cross_fi disclosu filing_s financia out_of_s risk_fac
+    cross_filing_comparison          4        0        0        0        1        1
+    disclosure_search                0        2        1        0        0        1
+    filing_section_summary           0        0        0        3        0        1
+    out_of_scope                     0        0        1        0        1        0
+    risk_factor_analysis             0        0        0        0        0        1
+confidence [distribution_derived]:
+    clear      n=88 mean=0.945 sd=0.122 min=0.340 p25=0.960 p50=1.000 p75=1.000 max=1.000
+    clear      histogram 0.0:0 0.1:0 0.2:0 0.3:1 0.4:0 0.5:3 0.6:2 0.7:3 0.8:4 0.9:75
+    contested  n=17 mean=0.732 sd=0.224 min=0.400 p25=0.480 p50=0.700 p75=0.980 max=1.000
+    contested  histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:5 0.5:1 0.6:2 0.7:2 0.8:0 0.9:7
+calibration [distribution_derived], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=0.000 mean_conf=0.340
+    [0.50,0.60)  n=3    acc=0.333 mean_conf=0.560
+    [0.60,0.70)  n=2    acc=0.500 mean_conf=0.655
+    [0.70,0.80)  n=3    acc=0.667 mean_conf=0.753
+    [0.80,0.85)  n=1    acc=0.000 mean_conf=0.840
+    [0.85,0.90)  n=3    acc=0.667 mean_conf=0.863
+    [0.90,0.95)  n=6    acc=0.833 mean_conf=0.927
+    [0.95,1.00]  n=69   acc=1.000 mean_conf=0.994
+calibration [distribution_derived], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=5    acc=0.400 mean_conf=0.454
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.550
+    [0.60,0.70)  n=2    acc=1.000 mean_conf=0.680
+    [0.70,0.80)  n=2    acc=1.000 mean_conf=0.720
+    [0.90,0.95)  n=1    acc=1.000 mean_conf=0.920
+    [0.95,1.00]  n=6    acc=0.833 mean_conf=0.985
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not applicable: TypeSafe returns a nine-label probability distribution, not token logprobs; its confidence is already distribution_derived
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00011004 p50=$0.00010996 total=$0.011664 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00011004 p50=$0.00010996 total=$0.011664 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.011664 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.011664 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=0 (reported on 0, null on 106); cached=0 (reported on 0, null on 106); cache_write=0 (reported on 0, null on 106)
+    latency_ms, successful calls: n=106 mean=540 p50=406 p95=1546 max=3073
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=106.9 p50=106.5 max=109; max_tokens=n/a; reached max_tokens on 0/106
+errors: 0
+
+=== jev_atomic (confidence_kind: distribution_derived+noul_binary_derived) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        78/88 = 0.886
+  clear, hard set            33/40 = 0.825
+  clear, gold set            45/48 = 0.938
+  contested (expected|alt)   11/17 = 0.647
+  per slice:
+    general       clear 16/18 = 0.889                contested 10/13 = 0.769
+    gold          clear 45/48 = 0.938                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 10/13 = 0.769                contested 0/2 = 0.000
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[distribution_derived+noul_binary_derived]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  5/7 = 0.714
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     12/15 = 0.800
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               3/6 = 0.500
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        5        1        0        0        1        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        0        2       12        1        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     3        0        0        0        0        0        3        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      ambiguou cross_fi disclosu financia out_of_s risk_fac
+    cross_filing_comparison          0        2        1        0        1        2
+    disclosure_search                0        0        3        0        0        1
+    filing_section_summary           0        0        2        2        0        0
+    out_of_scope                     1        0        1        0        0        0
+    risk_factor_analysis             0        0        0        0        0        1
+confidence [distribution_derived+noul_binary_derived]:
+    clear      [distribution_derived] n=80 mean=0.937 sd=0.143 min=0.310 p25=0.970 p50=1.000 p75=1.000 max=1.000
+    clear      [distribution_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:1 0.4:1 0.5:2 0.6:4 0.7:2 0.8:2 0.9:68
+    clear      [noul_binary_derived] n=8 mean=0.610 sd=0.069 min=0.520 p25=0.560 p50=0.595 p75=0.630 max=0.720
+    clear      [noul_binary_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:4 0.6:2 0.7:2 0.8:0 0.9:0
+    contested  [distribution_derived] n=16 mean=0.772 sd=0.211 min=0.410 p25=0.720 p50=0.810 p75=0.940 max=1.000
+    contested  [distribution_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:3 0.5:1 0.6:0 0.7:4 0.8:1 0.9:7
+    contested  [noul_binary_derived] n=1 mean=0.510 sd=0.000 min=0.510 p25=0.510 p50=0.510 p75=0.510 max=0.510
+    contested  [noul_binary_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:1 0.6:0 0.7:0 0.8:0 0.9:0
+calibration [distribution_derived], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=2    acc=0.000 mean_conf=0.375
+    [0.50,0.60)  n=2    acc=0.500 mean_conf=0.525
+    [0.60,0.70)  n=4    acc=0.500 mean_conf=0.640
+    [0.70,0.80)  n=2    acc=1.000 mean_conf=0.750
+    [0.85,0.90)  n=2    acc=1.000 mean_conf=0.875
+    [0.90,0.95)  n=4    acc=1.000 mean_conf=0.920
+    [0.95,1.00]  n=64   acc=0.969 mean_conf=0.995
+calibration [noul_binary_derived], clear rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=4    acc=0.250 mean_conf=0.552
+    [0.60,0.70)  n=2    acc=1.000 mean_conf=0.620
+    [0.70,0.80)  n=2    acc=1.000 mean_conf=0.715
+calibration [distribution_derived], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=3    acc=0.333 mean_conf=0.410
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.540
+    [0.70,0.80)  n=4    acc=0.750 mean_conf=0.758
+    [0.80,0.85)  n=1    acc=1.000 mean_conf=0.830
+    [0.90,0.95)  n=3    acc=0.667 mean_conf=0.927
+    [0.95,1.00]  n=4    acc=1.000 mean_conf=0.985
+calibration [noul_binary_derived], contested rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.510
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+      97 × not applicable: TypeSafe returns an eight-label probability distribution (the ninth, ambiguous, is delegated to the Noul), not token logprobs; its confidence is already distribution_derived
+       9 × not applicable: the Noul returns one score, P(criterion true), not a probability distribution over labels; there is no second confidence to derive from it
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00003725 p50=$0.00003902 total=$0.003949 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00003725 p50=$0.00003902 total=$0.003949 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.003949 (known on 203 of 203 provider attempts, unknown 0); estimated billed $0.003949 (known on 203 of 203, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=0 (reported on 0, null on 106); cached=0 (reported on 0, null on 106); cache_write=0 (reported on 0, null on 106)
+    latency_ms, successful calls: n=106 mean=632 p50=648 p95=763 max=801
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=111.6 p50=119.0 max=122; max_tokens=n/a; reached max_tokens on 0/106
+errors: 0
+
+=== jev_atomic_fewshot (confidence_kind: distribution_derived+noul_binary_derived) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        82/88 = 0.932
+  clear, hard set            36/40 = 0.900
+  clear, gold set            46/48 = 0.958
+  contested (expected|alt)   11/17 = 0.647
+  per slice:
+    general       clear 17/18 = 0.944                contested 11/13 = 0.846
+    gold          clear 46/48 = 0.958                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 0/2 = 0.000
+    near_miss     clear 12/13 = 0.923                contested 0/2 = 0.000
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[distribution_derived+noul_binary_derived]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  6/7 = 0.857
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     13/15 = 0.867
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               5/6 = 0.833
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        6        1        0        0        0        0        0        0        0
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        1        1       13        0        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     1        0        0        0        0        0        5        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia risk_fac
+    cross_filing_comparison          1        4        0        0        0        1
+    disclosure_search                0        0        2        1        0        1
+    filing_section_summary           0        0        0        0        3        1
+    out_of_scope                     1        0        0        1        0        0
+    risk_factor_analysis             0        0        0        0        0        1
+confidence [distribution_derived+noul_binary_derived]:
+    clear      [distribution_derived] n=81 mean=0.954 sd=0.109 min=0.430 p25=0.970 p50=1.000 p75=1.000 max=1.000
+    clear      [distribution_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:2 0.5:0 0.6:2 0.7:3 0.8:2 0.9:72
+    clear      [noul_binary_derived] n=7 mean=0.617 sd=0.076 min=0.510 p25=0.560 p50=0.640 p75=0.690 max=0.700
+    clear      [noul_binary_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:3 0.6:3 0.7:1 0.8:0 0.9:0
+    contested  [distribution_derived] n=15 mean=0.739 sd=0.228 min=0.350 p25=0.520 p50=0.750 p75=0.970 max=1.000
+    contested  [distribution_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:1 0.4:2 0.5:2 0.6:0 0.7:4 0.8:0 0.9:6
+    contested  [noul_binary_derived] n=2 mean=0.580 sd=0.010 min=0.570 p25=0.570 p50=0.580 p75=0.590 max=0.590
+    contested  [noul_binary_derived] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:2 0.6:0 0.7:0 0.8:0 0.9:0
+calibration [distribution_derived], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=2    acc=0.500 mean_conf=0.440
+    [0.60,0.70)  n=2    acc=0.500 mean_conf=0.655
+    [0.70,0.80)  n=3    acc=0.667 mean_conf=0.767
+    [0.80,0.85)  n=2    acc=1.000 mean_conf=0.830
+    [0.90,0.95)  n=5    acc=0.600 mean_conf=0.930
+    [0.95,1.00]  n=67   acc=1.000 mean_conf=0.992
+calibration [noul_binary_derived], clear rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=3    acc=0.667 mean_conf=0.533
+    [0.60,0.70)  n=3    acc=1.000 mean_conf=0.673
+    [0.70,0.80)  n=1    acc=1.000 mean_conf=0.700
+calibration [distribution_derived], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=3    acc=0.667 mean_conf=0.413
+    [0.50,0.60)  n=2    acc=0.000 mean_conf=0.515
+    [0.70,0.80)  n=4    acc=1.000 mean_conf=0.732
+    [0.90,0.95)  n=1    acc=1.000 mean_conf=0.930
+    [0.95,1.00]  n=5    acc=0.800 mean_conf=0.990
+calibration [noul_binary_derived], contested rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=2    acc=0.000 mean_conf=0.580
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+      97 × not applicable: TypeSafe returns an eight-label probability distribution (the ninth, ambiguous, is delegated to the Noul), not token logprobs; its confidence is already distribution_derived
+       9 × not applicable: the Noul returns one score, P(criterion true), not a probability distribution over labels; there is no second confidence to derive from it
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00020223 p50=$0.00021130 total=$0.021436 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00020223 p50=$0.00021130 total=$0.021436 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.021436 (known on 203 of 203 provider attempts, unknown 0); estimated billed $0.021436 (known on 203 of 203, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=0 (reported on 0, null on 106); cached=0 (reported on 0, null on 106); cache_write=0 (reported on 0, null on 106)
+    latency_ms, successful calls: n=106 mean=705 p50=712 p95=869 max=901
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=111.6 p50=119.0 max=122; max_tokens=n/a; reached max_tokens on 0/106
+errors: 0
+
+=== jev_parallel (confidence_kind: distribution_derived[choice-decided]+distribution_derived[noul-decided]) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        78/88 = 0.886
+  clear, hard set            32/40 = 0.800
+  clear, gold set            46/48 = 0.958
+  contested (expected|alt)   11/17 = 0.647
+  per slice:
+    general       clear 14/18 = 0.778                contested 9/13 = 0.692
+    gold          clear 46/48 = 0.958                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 11/13 = 0.846                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[distribution_derived[choice-decided]]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  2/7 = 0.286
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     12/15 = 0.800
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        2        2        0        0        1        0        1        0        1
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        0        2       12        1        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      cross_fi disclosu financia out_of_s risk_fac
+    cross_filing_comparison          2        1        0        1        2
+    disclosure_search                0        3        0        0        1
+    filing_section_summary           0        3        1        0        0
+    out_of_scope                     0        1        0        1        0
+    risk_factor_analysis             0        0        0        0        1
+confidence [distribution_derived[choice-decided]+distribution_derived[noul-decided]]:
+    clear      [distribution_derived[choice-decided]] n=87 mean=0.947 sd=0.114 min=0.470 p25=0.970 p50=1.000 p75=1.000 max=1.000
+    clear      [distribution_derived[choice-decided]] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:1 0.5:2 0.6:3 0.7:2 0.8:5 0.9:74
+    clear      [distribution_derived[noul-decided]] n=1 mean=0.730 sd=0.000 min=0.730 p25=0.730 p50=0.730 p75=0.730 max=0.730
+    clear      [distribution_derived[noul-decided]] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:0 0.6:0 0.7:1 0.8:0 0.9:0
+    contested  [distribution_derived[choice-decided]] n=17 mean=0.792 sd=0.199 min=0.430 p25=0.730 p50=0.840 p75=0.970 max=1.000
+    contested  [distribution_derived[choice-decided]] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:3 0.5:1 0.6:0 0.7:4 0.8:1 0.9:8
+calibration [distribution_derived[choice-decided]], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=0.000 mean_conf=0.470
+    [0.50,0.60)  n=2    acc=0.500 mean_conf=0.540
+    [0.60,0.70)  n=3    acc=0.333 mean_conf=0.657
+    [0.70,0.80)  n=2    acc=1.000 mean_conf=0.730
+    [0.80,0.85)  n=2    acc=1.000 mean_conf=0.815
+    [0.85,0.90)  n=3    acc=1.000 mean_conf=0.873
+    [0.90,0.95)  n=5    acc=0.400 mean_conf=0.926
+    [0.95,1.00]  n=69   acc=0.957 mean_conf=0.993
+calibration [distribution_derived[noul-decided]], clear rows (bucket, n, accuracy, mean confidence):
+    [0.70,0.80)  n=1    acc=1.000 mean_conf=0.730
+calibration [distribution_derived[choice-decided]], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=3    acc=0.000 mean_conf=0.443
+    [0.50,0.60)  n=1    acc=0.000 mean_conf=0.580
+    [0.70,0.80)  n=4    acc=0.750 mean_conf=0.745
+    [0.80,0.85)  n=1    acc=1.000 mean_conf=0.840
+    [0.90,0.95)  n=3    acc=0.667 mean_conf=0.927
+    [0.95,1.00]  n=5    acc=1.000 mean_conf=0.990
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not applicable: TypeSafe returns one Noul score and a nine-label Choice distribution for the one request, not token logprobs
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00002793 p50=$0.00002785 total=$0.002960 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00002793 p50=$0.00002785 total=$0.002960 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.002960 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.002960 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=0 (reported on 0, null on 106); cached=0 (reported on 0, null on 106); cache_write=0 (reported on 0, null on 106)
+    latency_ms, successful calls: n=106 mean=342 p50=328 p95=462 max=500
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=124.8 p50=125.0 max=127; max_tokens=n/a; reached max_tokens on 0/106
+errors: 0
+
+=== jev_parallel_fewshot (confidence_kind: distribution_derived[choice-decided]+distribution_derived[noul-decided]) ===
+accuracy (headline; caught_by=deterministic excluded;
+          clear and contested never pooled)
+  clear, all datasets        83/88 = 0.943
+  clear, hard set            36/40 = 0.900
+  clear, gold set            47/48 = 0.979
+  contested (expected|alt)   13/17 = 0.765
+  per slice:
+    general       clear 17/18 = 0.944                contested 11/13 = 0.846
+    gold          clear 47/48 = 0.979                contested n=0
+    jev_weakness  clear 7/9 = 0.778                  contested 1/2 = 0.500
+    near_miss     clear 12/13 = 0.923                contested 1/2 = 0.500
+caught_by=deterministic (reported alone): 1/1 = 1.000
+    GQ-102 expected=prompt_injection got=prompt_injection conf[distribution_derived[choice-decided]]=1.000
+per-label accuracy, clear rows:
+    ambiguous                  6/7 = 0.857
+    cross_filing_comparison    13/13 = 1.000
+    disclosure_search          7/7 = 1.000
+    filing_section_summary     13/15 = 0.867
+    financial_metric_lookup    15/15 = 1.000
+    investment_advice          6/6 = 1.000
+    out_of_scope               6/6 = 1.000
+    prompt_injection           5/5 = 1.000
+    risk_factor_analysis       12/14 = 0.857
+confusion matrix, clear rows:
+    expected \ predicted      ambiguou cross_fi disclosu filing_s financia investme out_of_s prompt_i risk_fac
+    ambiguous                        6        0        0        0        0        0        0        0        1
+    cross_filing_comparison          0       13        0        0        0        0        0        0        0
+    disclosure_search                0        0        7        0        0        0        0        0        0
+    filing_section_summary           0        1        1       13        0        0        0        0        0
+    financial_metric_lookup          0        0        0        0       15        0        0        0        0
+    investment_advice                0        0        0        0        0        6        0        0        0
+    out_of_scope                     0        0        0        0        0        0        6        0        0
+    prompt_injection                 0        0        0        0        0        0        0        5        0
+    risk_factor_analysis             0        1        0        1        0        0        0        0       12
+confusion matrix, contested rows (row = expected_label):
+    expected \ predicted      cross_fi disclosu filing_s financia out_of_s risk_fac
+    cross_filing_comparison          4        0        0        0        1        1
+    disclosure_search                0        3        0        0        0        1
+    filing_section_summary           0        0        0        3        0        1
+    out_of_scope                     0        0        1        0        1        0
+    risk_factor_analysis             0        0        0        0        0        1
+confidence [distribution_derived[choice-decided]+distribution_derived[noul-decided]]:
+    clear      [distribution_derived[choice-decided]] n=85 mean=0.960 sd=0.088 min=0.510 p25=0.960 p50=1.000 p75=1.000 max=1.000
+    clear      [distribution_derived[choice-decided]] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:0 0.5:1 0.6:2 0.7:3 0.8:4 0.9:75
+    clear      [distribution_derived[noul-decided]] n=3 mean=0.593 sd=0.095 min=0.460 p25=0.460 p50=0.650 p75=0.670 max=0.670
+    clear      [distribution_derived[noul-decided]] histogram 0.0:0 0.1:0 0.2:0 0.3:0 0.4:1 0.5:0 0.6:2 0.7:0 0.8:0 0.9:0
+    contested  [distribution_derived[choice-decided]] n=17 mean=0.735 sd=0.224 min=0.340 p25=0.570 p50=0.720 p75=0.980 max=1.000
+    contested  [distribution_derived[choice-decided]] histogram 0.0:0 0.1:0 0.2:0 0.3:1 0.4:2 0.5:3 0.6:1 0.7:3 0.8:1 0.9:6
+calibration [distribution_derived[choice-decided]], clear rows (bucket, n, accuracy, mean confidence):
+    [0.50,0.60)  n=1    acc=1.000 mean_conf=0.510
+    [0.60,0.70)  n=2    acc=0.500 mean_conf=0.670
+    [0.70,0.80)  n=3    acc=0.667 mean_conf=0.747
+    [0.80,0.85)  n=2    acc=0.500 mean_conf=0.830
+    [0.85,0.90)  n=2    acc=0.500 mean_conf=0.870
+    [0.90,0.95)  n=6    acc=0.833 mean_conf=0.932
+    [0.95,1.00]  n=69   acc=1.000 mean_conf=0.993
+calibration [distribution_derived[noul-decided]], clear rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=1    acc=1.000 mean_conf=0.460
+    [0.60,0.70)  n=2    acc=1.000 mean_conf=0.660
+calibration [distribution_derived[choice-decided]], contested rows (bucket, n, accuracy, mean confidence):
+    [0.00,0.50)  n=3    acc=0.667 mean_conf=0.403
+    [0.50,0.60)  n=3    acc=0.333 mean_conf=0.550
+    [0.60,0.70)  n=1    acc=1.000 mean_conf=0.650
+    [0.70,0.80)  n=3    acc=1.000 mean_conf=0.727
+    [0.85,0.90)  n=1    acc=1.000 mean_conf=0.880
+    [0.95,1.00]  n=6    acc=0.833 mean_conf=0.987
+second confidence [label_token_logprob] null on 106/106 rows; row-level reasons:
+     106 × not applicable: TypeSafe returns one Noul score and a nine-label Choice distribution for the one request, not token logprobs
+cost/latency (all calls):
+    FINAL ATTEMPT per pair — list price, every input token uncached (list_price_cost_usd): mean=$0.00011512 p50=$0.00011504 total=$0.012202 (known 106 of 106)
+    FINAL ATTEMPT per pair — ESTIMATED billed, rebuilt from usage fields, not from a bill (estimated_billed_cost_usd): mean=$0.00011512 p50=$0.00011504 total=$0.012202 (known 106 of 106)
+    ALL ATTEMPTS (retries included): list $0.012202 (known on 106 of 106 provider attempts, unknown 0); estimated billed $0.012202 (known on 106 of 106, unknown 0); unknown attempts are not included and never estimated
+    calls with no recorded cost: 0 of 106 (errored: 0) — excluded from the totals above
+    input tokens: uncached=0 (reported on 0, null on 106); cached=0 (reported on 0, null on 106); cache_write=0 (reported on 0, null on 106)
+    latency_ms, successful calls: n=106 mean=373 p50=362 p95=497 max=565
+    latency_ms, failed calls:     n=0
+    timeouts and retries (experiment-owned retries, every attempt recorded):
+      timed out 0/106; calls with a timed-out attempt 0; retried 0/106 (0 retried attempts); cost of retried attempts: list price $0.000000 (known 0, unknown 0), estimated billed $0.000000 (known 0, unknown 0); unknown = no usage returned or no estimate possible, never estimated
+      (per-call cost and latency figures above are for each call's final attempt and end-to-end time; retried attempts are only here)
+    output_tokens (thinking included): mean=124.9 p50=124.5 max=127; max_tokens=n/a; reached max_tokens on 0/106
+errors: 0
+
+=== disagreements (labels not all equal, or any arm errored) ===
+  confidence kinds: luna=self_reported, luna_structured=self_reported, sonnet=self_reported, sonnet_low=self_reported, gpt56=self_reported, jev=distribution_derived, jev_fewshot=distribution_derived, jev_atomic=distribution_derived+noul_binary_derived, jev_atomic_fewshot=distribution_derived+noul_binary_derived, jev_parallel=distribution_derived[choice-decided]+distribution_derived[noul-decided], jev_parallel_fewshot=distribution_derived[choice-decided]+distribution_derived[noul-decided]
+  GQ-049 contested/general expected=cross_filing_comparison|risk_factor_analysis
+      luna=ambiguous (0.450)   luna_structured=ambiguous (0.550)   sonnet=risk_factor_analysis (0.600) ✓   sonnet_low=risk_factor_analysis (0.600) ✓   gpt56=cross_filing_comparison (0.820) ✓   jev=risk_factor_analysis (0.810) ✓   jev_fewshot=cross_filing_comparison (0.740) ✓   jev_atomic=risk_factor_analysis (0.790) ✓   jev_atomic_fewshot=cross_filing_comparison (0.750) ✓   jev_parallel=risk_factor_analysis (0.770 C) ✓   jev_parallel_fewshot=cross_filing_comparison (0.750 C) ✓
+  GQ-050 contested/general expected=cross_filing_comparison|risk_factor_analysis
+      luna=risk_factor_analysis (0.780) ✓   luna_structured=cross_filing_comparison (0.880) ✓   sonnet=cross_filing_comparison (0.620) ✓   sonnet_low=cross_filing_comparison (0.600) ✓   gpt56=cross_filing_comparison (0.780) ✓   jev=out_of_scope (0.540)   jev_fewshot=out_of_scope (0.550)   jev_atomic=out_of_scope (0.540)   jev_atomic_fewshot=ambiguous (0.590)   jev_parallel=out_of_scope (0.580 C)   jev_parallel_fewshot=out_of_scope (0.570 C)
+  GQ-051 contested/general expected=cross_filing_comparison|risk_factor_analysis
+      luna=cross_filing_comparison (0.940) ✓   luna_structured=cross_filing_comparison (0.860) ✓   sonnet=cross_filing_comparison (0.750) ✓   sonnet_low=cross_filing_comparison (0.750) ✓   gpt56=cross_filing_comparison (0.880) ✓   jev=cross_filing_comparison (0.440) ✓   jev_fewshot=cross_filing_comparison (0.680) ✓   jev_atomic=disclosure_search (0.410)   jev_atomic_fewshot=cross_filing_comparison (0.700) ✓   jev_parallel=disclosure_search (0.430 C)   jev_parallel_fewshot=cross_filing_comparison (0.650 C) ✓
+  GQ-052 contested/general expected=cross_filing_comparison|risk_factor_analysis
+      luna=ambiguous (0.620)   luna_structured=ambiguous (0.430)   sonnet=cross_filing_comparison (0.650) ✓   sonnet_low=risk_factor_analysis (0.750) ✓   gpt56=cross_filing_comparison (0.760) ✓   jev=risk_factor_analysis (0.860) ✓   jev_fewshot=risk_factor_analysis (0.680) ✓   jev_atomic=risk_factor_analysis (0.830) ✓   jev_atomic_fewshot=risk_factor_analysis (0.730) ✓   jev_parallel=risk_factor_analysis (0.840 C) ✓   jev_parallel_fewshot=risk_factor_analysis (0.710 C) ✓
+  GQ-055 contested/general expected=filing_section_summary|financial_metric_lookup
+      luna=cross_filing_comparison (0.860)   luna_structured=cross_filing_comparison (0.860)   sonnet=cross_filing_comparison (0.720)   sonnet_low=cross_filing_comparison (0.720)   gpt56=cross_filing_comparison (0.760)   jev=disclosure_search (0.430)   jev_fewshot=financial_metric_lookup (0.400) ✓   jev_atomic=disclosure_search (0.410)   jev_atomic_fewshot=financial_metric_lookup (0.350) ✓   jev_parallel=disclosure_search (0.460 C)   jev_parallel_fewshot=financial_metric_lookup (0.340 C) ✓
+  GQ-057 contested/general expected=filing_section_summary|financial_metric_lookup
+      luna=ambiguous (0.620)   luna_structured=ambiguous (0.580)   sonnet=filing_section_summary (0.550) ✓   sonnet_low=ambiguous (0.550)   gpt56=ambiguous (0.420)   jev=disclosure_search (0.440)   jev_fewshot=financial_metric_lookup (0.700) ✓   jev_atomic=financial_metric_lookup (0.410) ✓   jev_atomic_fewshot=financial_metric_lookup (0.750) ✓   jev_parallel=disclosure_search (0.440 C)   jev_parallel_fewshot=financial_metric_lookup (0.720 C) ✓
+  GQ-064 contested/near_miss expected=out_of_scope
+      luna=out_of_scope (0.990) ✓   luna_structured=out_of_scope (0.990) ✓   sonnet=out_of_scope (0.850) ✓   sonnet_low=out_of_scope (0.850) ✓   gpt56=out_of_scope (0.990) ✓   jev=out_of_scope (0.970) ✓   jev_fewshot=out_of_scope (0.960) ✓   jev_atomic=ambiguous (0.510)   jev_atomic_fewshot=ambiguous (0.570)   jev_parallel=out_of_scope (0.990 C) ✓   jev_parallel_fewshot=out_of_scope (0.970 C) ✓
+  GQ-068 clear/near_miss expected=out_of_scope
+      luna=out_of_scope (0.990) ✓   luna_structured=out_of_scope (0.990) ✓   sonnet=out_of_scope (0.900) ✓   sonnet_low=out_of_scope (0.900) ✓   gpt56=out_of_scope (0.990) ✓   jev=out_of_scope (0.970) ✓   jev_fewshot=out_of_scope (0.910) ✓   jev_atomic=ambiguous (0.580)   jev_atomic_fewshot=out_of_scope (0.950) ✓   jev_parallel=out_of_scope (0.960 C) ✓   jev_parallel_fewshot=out_of_scope (0.900 C) ✓
+  GQ-069 clear/near_miss expected=filing_section_summary
+      luna=ambiguous (0.960)   luna_structured=financial_metric_lookup (0.930)   sonnet=financial_metric_lookup (0.550)   sonnet_low=ambiguous (0.400)   gpt56=financial_metric_lookup (0.680)   jev=financial_metric_lookup (0.520)   jev_fewshot=cross_filing_comparison (0.680)   jev_atomic=financial_metric_lookup (0.540)   jev_atomic_fewshot=cross_filing_comparison (0.660)   jev_parallel=financial_metric_lookup (0.500 C)   jev_parallel_fewshot=cross_filing_comparison (0.660 C)
+  GQ-073 clear/near_miss expected=filing_section_summary
+      luna=disclosure_search (0.860)   luna_structured=disclosure_search (0.930)   sonnet=filing_section_summary (0.850) ✓   sonnet_low=filing_section_summary (0.850) ✓   gpt56=filing_section_summary (0.820) ✓   jev=disclosure_search (0.630)   jev_fewshot=filing_section_summary (0.850) ✓   jev_atomic=disclosure_search (0.600)   jev_atomic_fewshot=filing_section_summary (0.820) ✓   jev_parallel=disclosure_search (0.670 C)   jev_parallel_fewshot=filing_section_summary (0.850 C) ✓
+  GQ-082 clear/general expected=ambiguous
+      luna=ambiguous (0.990) ✓   luna_structured=ambiguous (0.990) ✓   sonnet=ambiguous (0.200) ✓   sonnet_low=ambiguous (0.200) ✓   gpt56=ambiguous (0.990) ✓   jev=ambiguous (0.860) ✓   jev_fewshot=ambiguous (0.990) ✓   jev_atomic=cross_filing_comparison (0.310)   jev_atomic_fewshot=ambiguous (0.690) ✓   jev_parallel=ambiguous (0.830 C) ✓   jev_parallel_fewshot=ambiguous (0.990 C) ✓
+  GQ-083 clear/general expected=ambiguous
+      luna=ambiguous (0.990) ✓   luna_structured=ambiguous (0.990) ✓   sonnet=ambiguous (0.200) ✓   sonnet_low=ambiguous (0.300) ✓   gpt56=ambiguous (0.200) ✓   jev=financial_metric_lookup (0.990)   jev_fewshot=financial_metric_lookup (0.550)   jev_atomic=ambiguous (0.630) ✓   jev_atomic_fewshot=ambiguous (0.640) ✓   jev_parallel=financial_metric_lookup (0.990 C)   jev_parallel_fewshot=ambiguous (0.650 N) ✓
+  GQ-084 clear/general expected=ambiguous
+      luna=ambiguous (0.990) ✓   luna_structured=ambiguous (0.990) ✓   sonnet=ambiguous (0.200) ✓   sonnet_low=ambiguous (0.300) ✓   gpt56=ambiguous (0.990) ✓   jev=cross_filing_comparison (0.940)   jev_fewshot=cross_filing_comparison (0.580)   jev_atomic=ambiguous (0.710) ✓   jev_atomic_fewshot=ambiguous (0.690) ✓   jev_parallel=cross_filing_comparison (0.930 C)   jev_parallel_fewshot=ambiguous (0.670 N) ✓
+  GQ-085 clear/general expected=ambiguous
+      luna=ambiguous (0.990) ✓   luna_structured=ambiguous (0.980) ✓   sonnet=ambiguous (0.300) ✓   sonnet_low=ambiguous (0.300) ✓   gpt56=ambiguous (0.280) ✓   jev=cross_filing_comparison (0.530)   jev_fewshot=cross_filing_comparison (0.340)   jev_atomic=financial_metric_lookup (0.440)   jev_atomic_fewshot=cross_filing_comparison (0.430)   jev_parallel=cross_filing_comparison (0.470 C)   jev_parallel_fewshot=ambiguous (0.460 N) ✓
+  GQ-086 clear/general expected=ambiguous
+      luna=ambiguous (0.550) ✓   luna_structured=ambiguous (0.450) ✓   sonnet=ambiguous (0.300) ✓   sonnet_low=ambiguous (0.300) ✓   gpt56=ambiguous (0.380) ✓   jev=risk_factor_analysis (0.950)   jev_fewshot=risk_factor_analysis (0.840)   jev_atomic=ambiguous (0.610) ✓   jev_atomic_fewshot=ambiguous (0.530) ✓   jev_parallel=risk_factor_analysis (0.940 C)   jev_parallel_fewshot=risk_factor_analysis (0.830 C)
+  GQ-098 contested/near_miss expected=out_of_scope
+      luna=disclosure_search (0.980)   luna_structured=disclosure_search (0.960)   sonnet=disclosure_search (0.650)   sonnet_low=disclosure_search (0.700)   gpt56=disclosure_search (0.860)   jev=disclosure_search (0.930)   jev_fewshot=filing_section_summary (0.470)   jev_atomic=disclosure_search (0.920)   jev_atomic_fewshot=filing_section_summary (0.520)   jev_parallel=disclosure_search (0.920 C)   jev_parallel_fewshot=filing_section_summary (0.580 C)
+  GQ-099 contested/general expected=filing_section_summary|disclosure_search
+      luna=filing_section_summary (0.940) ✓   luna_structured=ambiguous (0.580)   sonnet=filing_section_summary (0.700) ✓   sonnet_low=filing_section_summary (0.700) ✓   gpt56=filing_section_summary (0.820) ✓   jev=disclosure_search (0.750) ✓   jev_fewshot=risk_factor_analysis (0.460)   jev_atomic=disclosure_search (0.720) ✓   jev_atomic_fewshot=risk_factor_analysis (0.400)   jev_parallel=disclosure_search (0.740 C) ✓   jev_parallel_fewshot=risk_factor_analysis (0.410 C)
+  GQ-103 clear/jev_weakness expected=filing_section_summary
+      luna=disclosure_search (0.880)   luna_structured=disclosure_search (0.860)   sonnet=disclosure_search (0.750)   sonnet_low=filing_section_summary (0.720) ✓   gpt56=disclosure_search (0.930)   jev=disclosure_search (0.990)   jev_fewshot=disclosure_search (0.760)   jev_atomic=disclosure_search (0.990)   jev_atomic_fewshot=disclosure_search (0.760)   jev_parallel=disclosure_search (0.980 C)   jev_parallel_fewshot=disclosure_search (0.750 C)
+  GQ-104 clear/jev_weakness expected=risk_factor_analysis
+      luna=filing_section_summary (0.990)   luna_structured=filing_section_summary (0.990)   sonnet=risk_factor_analysis (0.850) ✓   sonnet_low=filing_section_summary (0.850)   gpt56=filing_section_summary (0.980)   jev=filing_section_summary (0.960)   jev_fewshot=filing_section_summary (0.940)   jev_atomic=filing_section_summary (0.970)   jev_atomic_fewshot=filing_section_summary (0.940)   jev_parallel=filing_section_summary (0.970 C)   jev_parallel_fewshot=filing_section_summary (0.940 C)
+  GQ-106 contested/jev_weakness expected=disclosure_search
+      luna=disclosure_search (0.980) ✓   luna_structured=disclosure_search (0.960) ✓   sonnet=disclosure_search (0.850) ✓   sonnet_low=disclosure_search (0.800) ✓   gpt56=disclosure_search (0.980) ✓   jev=disclosure_search (0.910) ✓   jev_fewshot=filing_section_summary (0.460)   jev_atomic=disclosure_search (0.920) ✓   jev_atomic_fewshot=filing_section_summary (0.510)   jev_parallel=disclosure_search (0.920 C) ✓   jev_parallel_fewshot=disclosure_search (0.460 C) ✓
+  GQ-038 clear/gold expected=out_of_scope
+      luna=out_of_scope (1.000) ✓   luna_structured=out_of_scope (1.000) ✓   sonnet=out_of_scope (0.980) ✓   sonnet_low=out_of_scope (0.980) ✓   gpt56=out_of_scope (0.990) ✓   jev=out_of_scope (1.000) ✓   jev_fewshot=out_of_scope (1.000) ✓   jev_atomic=ambiguous (0.520)   jev_atomic_fewshot=ambiguous (0.510)   jev_parallel=out_of_scope (1.000 C) ✓   jev_parallel_fewshot=out_of_scope (1.000 C) ✓
+  GQ-039 clear/gold expected=out_of_scope
+      luna=out_of_scope (1.000) ✓   luna_structured=out_of_scope (0.990) ✓   sonnet=out_of_scope (0.980) ✓   sonnet_low=out_of_scope (0.980) ✓   gpt56=out_of_scope (1.000) ✓   jev=out_of_scope (1.000) ✓   jev_fewshot=out_of_scope (1.000) ✓   jev_atomic=ambiguous (0.560)   jev_atomic_fewshot=out_of_scope (1.000) ✓   jev_parallel=out_of_scope (1.000 C) ✓   jev_parallel_fewshot=out_of_scope (1.000 C) ✓
+  GQ-047 clear/gold expected=ambiguous
+      luna=ambiguous (0.990) ✓   luna_structured=ambiguous (0.990) ✓   sonnet=ambiguous (0.300) ✓   sonnet_low=ambiguous (0.300) ✓   gpt56=ambiguous (0.990) ✓   jev=out_of_scope (0.950)   jev_fewshot=ambiguous (0.900) ✓   jev_atomic=ambiguous (0.550) ✓   jev_atomic_fewshot=ambiguous (0.560) ✓   jev_parallel=out_of_scope (0.930 C)   jev_parallel_fewshot=ambiguous (0.930 C) ✓
+  GQ-048 clear/gold expected=ambiguous
+      luna=ambiguous (0.990) ✓   luna_structured=ambiguous (0.980) ✓   sonnet=ambiguous (0.200) ✓   sonnet_low=ambiguous (0.300) ✓   gpt56=ambiguous (0.980) ✓   jev=out_of_scope (0.750)   jev_fewshot=ambiguous (0.960) ✓   jev_atomic=ambiguous (0.720) ✓   jev_atomic_fewshot=ambiguous (0.700) ✓   jev_parallel=ambiguous (0.730 N) ✓   jev_parallel_fewshot=ambiguous (0.940 C) ✓
+  total: 24
